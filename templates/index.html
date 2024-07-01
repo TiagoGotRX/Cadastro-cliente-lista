@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Cadastro de Clientes</title>
+</head>
+<body>
+    <h1 class="titulo">Cadastro de Clientes</h1>
+    <form action="/cadastrar" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required>
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required>
+        <button type="submit">Cadastrar</button>
+    </form>
+    <hr>
+    <h2>Clientes Cadastrados</h2>
+
+    <ul>
+        {% for cliente in clientes %}
+            <li>ID: {{ cliente[0] }}, Nome: {{ cliente[1] }}, CPF: {{ cliente[2] }}, Endereço: {{ cliente[3] }}
+                <a href="{{ url_for('deletar', id=cliente[0]) }}">Deletar</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
