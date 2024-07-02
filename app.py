@@ -65,7 +65,7 @@ while True:
     elif opcao == '2':
         print('Clientes cadastrados:')
         listar_clientes()
-    elif opcao == '4':
+    elif opcao == '5':
         break
     else:
         print('Opção inválida')
